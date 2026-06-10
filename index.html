@@ -6,182 +6,394 @@
 <title>Ферма у реки — эко-глэмпинг в Подмосковье</title>
 <meta name="description" content="Премиальный эко-глэмпинг с собственной фермой, домами на воде и баней на реке Дубна. 100 км от МКАД.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --green:#1a3a2a;
-  --green-light:#2d5a3f;
-  --green-pale:#e8f0eb;
-  --gold:#b8963e;
-  --gold-light:#d4b366;
-  --cream:#faf8f3;
-  --cream-dark:#f0ece3;
+  --green:#1c3528;
+  --green2:#2a4a38;
+  --gold:#c9a84c;
+  --gold2:#e8c96a;
+  --cream:#f7f4ef;
+  --cream2:#ede9e0;
   --white:#ffffff;
-  --text:#2c2c2c;
-  --text-light:#6b6b6b;
-  --font:"Montserrat",sans-serif;
-  --accent:"Caveat",cursive;
+  --text:#1a1a1a;
+  --muted:#6a6a6a;
+  --serif:"Cormorant Garamond",serif;
+  --sans:"Montserrat",sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--font);color:var(--text);background:var(--cream);overflow-x:hidden}
+body{font-family:var(--sans);color:var(--text);background:var(--cream);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 .page{display:none}
 .page.active{display:block}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,58,42,0.95);backdrop-filter:blur(12px);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:72px;transition:all .3s}
-nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.15)}
-.nav-logo{height:52px;cursor:pointer}
-.nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{color:var(--cream);font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .3s;position:relative}
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(28,53,40,0.97);
+  backdrop-filter:blur(20px);
+  padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  border-bottom:1px solid rgba(201,168,76,0.2);
+}
+.nav-logo{height:50px;cursor:pointer}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{
+  color:rgba(247,244,239,0.7);
+  font-size:11px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  transition:color .3s;
+}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
-.nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .3s}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-.nav-cta{background:var(--gold);color:var(--green);padding:10px 24px;border-radius:4px;font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:all .3s;cursor:pointer;border:none}
-.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
-.burger span{width:24px;height:2px;background:var(--cream);transition:all .3s}
+.nav-cta{
+  background:transparent;
+  color:var(--gold);
+  padding:9px 24px;
+  border:1px solid var(--gold);
+  font-weight:500;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;font-family:var(--sans);
+  transition:all .3s;
+}
+.nav-cta:hover{background:var(--gold);color:var(--green)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:22px;height:1px;background:var(--cream);transition:all .3s}
 
-/* HERO */
-.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a3a2a 0%,#2d5a3f 40%,#1a3a2a 100%);z-index:0}
-.hero-bg::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-bg::after{content:"";position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--cream),transparent)}
-.hero-content{position:relative;z-index:1;max-width:800px;padding:0 20px;animation:fadeUp 1.2s ease}
-.hero-logo{width:280px;margin:0 auto 30px;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.3))}
-.hero h1{font-family:var(--accent);font-size:48px;color:var(--cream);margin-bottom:16px;font-weight:400;line-height:1.2}
-.hero p{color:rgba(250,248,243,0.8);font-size:16px;line-height:1.8;margin-bottom:40px;font-weight:400}
-.hero-tags{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.hero-tag{background:rgba(184,150,62,0.15);border:1px solid rgba(184,150,62,0.3);color:var(--gold-light);padding:8px 20px;border-radius:30px;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+/* ── HERO ── */
+.hero{
+  height:100vh;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(28,53,40,0.45) 0%,
+    rgba(28,53,40,0.3) 50%,
+    rgba(28,53,40,0.7) 100%);
+}
+.hero-content{
+  position:relative;z-index:1;
+  max-width:800px;padding:0 24px;
+}
+.hero-logo{width:240px;margin:0 auto 40px}
+.hero-line{
+  width:60px;height:1px;
+  background:var(--gold);
+  margin:0 auto 28px;
+}
+.hero h1{
+  font-family:var(--serif);
+  font-size:52px;font-weight:300;
+  color:var(--cream);
+  line-height:1.25;
+  margin-bottom:20px;
+  letter-spacing:1px;
+}
+.hero p{
+  color:rgba(247,244,239,0.75);
+  font-size:13px;line-height:2;
+  letter-spacing:1px;
+  margin-bottom:44px;
+  font-weight:300;
+}
+.hero-tags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.hero-tag{
+  border:1px solid rgba(201,168,76,0.4);
+  color:rgba(201,168,76,0.9);
+  padding:7px 20px;
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  font-weight:500;
+}
 .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn{padding:14px 36px;border-radius:4px;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s;border:none;font-family:var(--font)}
+.btn{
+  padding:14px 40px;
+  font-weight:500;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;font-family:var(--sans);
+  transition:all .3s;border:none;
+}
 .btn-gold{background:var(--gold);color:var(--green)}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,150,62,0.3)}
-.btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(250,248,243,0.3)}
+.btn-gold:hover{background:var(--gold2)}
+.btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(247,244,239,0.4)}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-dark{background:var(--green);color:var(--cream)}
+.btn-dark:hover{background:var(--green2)}
 
-/* SECTIONS */
-section{padding:100px 40px}
-.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
-.section-title{font-size:36px;font-weight:700;color:var(--green);margin-bottom:16px;line-height:1.3}
-.section-subtitle{font-family:var(--accent);font-size:24px;color:var(--text-light);margin-bottom:48px}
-.section-text{font-size:15px;line-height:1.9;color:var(--text-light);max-width:720px;margin-bottom:32px}
+/* ── SECTIONS ── */
+section{padding:96px 48px}
+.label{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);font-weight:600;margin-bottom:12px;
+}
+.title{
+  font-family:var(--serif);
+  font-size:40px;font-weight:300;
+  color:var(--green);margin-bottom:12px;line-height:1.3;
+}
+.subtitle{
+  font-size:13px;color:var(--muted);
+  margin-bottom:52px;line-height:1.9;
+  font-weight:300;max-width:640px;
+}
+.divider{width:48px;height:1px;background:var(--gold);margin:20px 0 40px}
 
-/* FEATURES GRID */
-.features{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1200px;margin:0 auto}
-.feature{text-align:center;padding:40px 24px;background:var(--white);border-radius:8px;border:1px solid rgba(26,58,42,0.08);transition:all .4s}
-.feature:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(26,58,42,0.08);border-color:var(--gold)}
-.feature-icon{font-size:40px;margin-bottom:20px}
-.feature h3{font-size:16px;font-weight:600;color:var(--green);margin-bottom:8px}
-.feature p{font-size:13px;color:var(--text-light);line-height:1.7}
+/* ── FEATURES (homepage) ── */
+.features{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;max-width:1300px;margin:0 auto;
+}
+.feature{
+  position:relative;overflow:hidden;
+  aspect-ratio:4/5;cursor:pointer;
+}
+.feature img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .7s ease;
+}
+.feature:hover img{transform:scale(1.06)}
+.feature-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(28,53,40,0.85) 0%,rgba(28,53,40,0.1) 60%);
+}
+.feature-text{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:32px;
+}
+.feature-text h3{
+  font-family:var(--serif);
+  font-size:22px;font-weight:400;
+  color:var(--cream);margin-bottom:6px;
+}
+.feature-text p{font-size:12px;color:rgba(247,244,239,0.7);line-height:1.7;font-weight:300}
+.feature-text .price-tag{
+  display:inline-block;
+  margin-top:12px;
+  color:var(--gold);
+  font-size:11px;letter-spacing:1.5px;
+}
 
-/* HOUSES */
-.houses-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:1200px;margin:0 auto}
-.house-card{background:var(--white);border-radius:8px;overflow:hidden;border:1px solid rgba(26,58,42,0.08);transition:all .4s}
-.house-card:hover{box-shadow:0 20px 50px rgba(26,58,42,0.1);transform:translateY(-4px)}
-.house-img{height:240px;background:var(--green);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.house-img-bg{position:absolute;inset:0;opacity:0.15}
-.house-img .house-emoji{font-size:80px;position:relative;z-index:1}
-.house-badge{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--green);padding:6px 14px;border-radius:3px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;z-index:1}
-.house-info{padding:28px}
-.house-info h3{font-size:20px;font-weight:700;color:var(--green);margin-bottom:4px}
-.house-meta{font-size:13px;color:var(--text-light);margin-bottom:16px}
-.house-details{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.house-detail{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-light)}
-.house-price{display:flex;align-items:baseline;gap:8px}
-.house-price .price{font-size:24px;font-weight:700;color:var(--green)}
-.house-price .per{font-size:13px;color:var(--text-light)}
+/* ── HOUSES ── */
+.houses-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:32px;max-width:1200px;margin:0 auto;
+}
+.house-card{background:var(--white);overflow:hidden;transition:box-shadow .4s}
+.house-card:hover{box-shadow:0 16px 48px rgba(28,53,40,0.12)}
+.house-img{height:300px;overflow:hidden;position:relative}
+.house-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease;
+}
+.house-card:hover .house-img img{transform:scale(1.04)}
+.house-badge{
+  position:absolute;top:20px;right:20px;
+  background:var(--gold);color:var(--green);
+  padding:5px 14px;font-size:10px;
+  font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+}
+.house-info{padding:32px}
+.house-info h3{
+  font-family:var(--serif);
+  font-size:26px;font-weight:400;
+  color:var(--green);margin-bottom:4px;
+}
+.house-meta{font-size:12px;color:var(--muted);margin-bottom:20px;letter-spacing:0.5px}
+.house-details{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.house-detail{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.house-price-row{
+  display:flex;align-items:baseline;
+  justify-content:space-between;flex-wrap:wrap;gap:12px;
+  border-top:1px solid var(--cream2);padding-top:20px;
+}
+.price{
+  font-family:var(--serif);
+  font-size:28px;font-weight:400;color:var(--green);
+}
+.per{font-size:12px;color:var(--muted)}
 
-/* FARM */
-.farm-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1200px;margin:0 auto;align-items:center}
+/* ── FARM ── */
+.farm-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;max-width:1200px;margin:0 auto;align-items:center;
+}
 .farm-visual{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.farm-card{background:var(--white);border-radius:8px;padding:32px 24px;text-align:center;border:1px solid rgba(26,58,42,0.08);transition:all .3s}
-.farm-card:hover{border-color:var(--gold);transform:scale(1.03)}
-.farm-card .farm-emoji{font-size:48px;margin-bottom:12px}
-.farm-card h4{font-size:14px;font-weight:600;color:var(--green);margin-bottom:4px}
-.farm-card p{font-size:12px;color:var(--text-light)}
+.farm-card{
+  background:var(--white);
+  padding:28px 20px;text-align:center;
+  border-bottom:2px solid transparent;
+  transition:border-color .3s, transform .3s;
+}
+.farm-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.farm-emoji{font-size:36px;margin-bottom:12px}
+.farm-card h4{font-size:13px;font-weight:600;color:var(--green);margin-bottom:4px;letter-spacing:0.5px}
+.farm-card p{font-size:11px;color:var(--muted);line-height:1.6}
 
-/* SPA */
-.spa-services{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
-.spa-card{background:var(--green);color:var(--cream);border-radius:8px;padding:40px 28px;position:relative;overflow:hidden;transition:all .4s}
-.spa-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(26,58,42,0.3)}
-.spa-card::before{content:"";position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(184,150,62,0.1)}
-.spa-card .spa-emoji{font-size:36px;margin-bottom:20px}
-.spa-card h3{font-size:18px;font-weight:600;margin-bottom:8px}
-.spa-card p{font-size:13px;opacity:0.8;line-height:1.7;margin-bottom:20px}
-.spa-price{color:var(--gold-light);font-size:14px;font-weight:600}
+/* ── SPA ── */
+.spa-hero{
+  margin-top:68px;height:55vh;
+  position:relative;overflow:hidden;
+}
+.spa-hero img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.spa-hero-overlay{
+  position:absolute;inset:0;
+  background:rgba(28,53,40,0.4);
+  display:flex;align-items:center;justify-content:center;
+}
+.spa-hero-text{text-align:center}
+.spa-hero-text .label{color:rgba(201,168,76,0.9)}
+.spa-hero-text h2{
+  font-family:var(--serif);
+  font-size:48px;font-weight:300;
+  color:var(--cream);letter-spacing:1px;
+}
+.spa-services{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;max-width:1300px;margin:0 auto;
+}
+.spa-card{
+  background:var(--green);
+  padding:44px 36px;
+  position:relative;overflow:hidden;
+  transition:background .3s;
+}
+.spa-card:hover{background:var(--green2)}
+.spa-card::after{
+  content:"";position:absolute;
+  bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);
+  transform:scaleX(0);transition:transform .4s;
+}
+.spa-card:hover::after{transform:scaleX(1)}
+.spa-emoji{font-size:28px;margin-bottom:20px;opacity:0.9}
+.spa-card h3{
+  font-family:var(--serif);
+  font-size:22px;font-weight:400;
+  color:var(--cream);margin-bottom:10px;
+}
+.spa-card p{font-size:12px;color:rgba(247,244,239,0.65);line-height:1.8;margin-bottom:20px;font-weight:300}
+.spa-price{color:var(--gold);font-size:12px;letter-spacing:1px;font-weight:500}
 
-/* PACKAGES */
-.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
-.package{background:var(--white);border-radius:8px;padding:36px 28px;border:1px solid rgba(26,58,42,0.08);transition:all .4s;position:relative}
-.package:hover{border-color:var(--gold);box-shadow:0 16px 40px rgba(26,58,42,0.08)}
-.package.featured{border:2px solid var(--gold);background:linear-gradient(to bottom,rgba(184,150,62,0.04),var(--white))}
-.package.featured::before{content:"Хит";position:absolute;top:16px;right:16px;background:var(--gold);color:var(--green);padding:4px 12px;border-radius:3px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.package h3{font-size:18px;font-weight:700;color:var(--green);margin-bottom:4px}
-.package .pkg-for{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
-.package ul{list-style:none;margin-bottom:24px}
-.package li{font-size:13px;color:var(--text-light);padding:6px 0;padding-left:20px;position:relative;line-height:1.6}
-.package li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
-.package .pkg-price{font-size:28px;font-weight:700;color:var(--green)}
-.package .pkg-note{font-size:12px;color:var(--text-light);margin-top:4px}
+/* ── PACKAGES ── */
+.packages-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;max-width:1200px;margin:0 auto;
+}
+.package{
+  background:var(--white);
+  padding:40px 32px;
+  border-top:3px solid transparent;
+  transition:all .3s;position:relative;
+}
+.package:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 16px 40px rgba(28,53,40,0.08)}
+.package.featured{border-color:var(--gold)}
+.package.featured::before{
+  content:"Популярный";
+  position:absolute;top:20px;right:20px;
+  background:var(--gold);color:var(--green);
+  padding:3px 12px;font-size:9px;
+  font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+}
+.package h3{
+  font-family:var(--serif);
+  font-size:24px;font-weight:400;color:var(--green);margin-bottom:4px;
+}
+.pkg-for{font-size:10px;color:var(--gold);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.package ul{list-style:none;margin-bottom:28px}
+.package li{
+  font-size:12px;color:var(--muted);
+  padding:7px 0 7px 16px;
+  position:relative;border-bottom:1px solid var(--cream2);
+  line-height:1.6;font-weight:300;
+}
+.package li::before{
+  content:"";position:absolute;left:0;top:15px;
+  width:5px;height:1px;background:var(--gold);
+}
+.pkg-price{
+  font-family:var(--serif);
+  font-size:32px;font-weight:300;color:var(--green);
+}
+.pkg-note{font-size:11px;color:var(--muted);margin-top:4px}
 
-/* BOOKING */
+/* ── BOOKING ── */
 .booking-section{background:var(--green);color:var(--cream)}
-.booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:0 auto;align-items:center}
+.booking-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;max-width:1100px;margin:0 auto;align-items:start;
+}
 .booking-form{display:flex;flex-direction:column;gap:16px}
-.booking-form label{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-light);font-weight:500}
-.booking-form input,.booking-form select,.booking-form textarea{padding:14px 16px;border:1px solid rgba(250,248,243,0.15);background:rgba(250,248,243,0.05);color:var(--cream);border-radius:4px;font-family:var(--font);font-size:14px;outline:none;transition:border .3s}
-.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{border-color:var(--gold)}
+.booking-form label{
+  font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gold);
+  font-weight:500;display:block;margin-bottom:6px;
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  width:100%;
+  padding:13px 16px;
+  border:1px solid rgba(247,244,239,0.12);
+  background:rgba(247,244,239,0.05);
+  color:var(--cream);
+  font-family:var(--sans);font-size:13px;
+  outline:none;transition:border .3s;
+  -webkit-appearance:none;
+}
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{border-color:rgba(201,168,76,0.5)}
 .booking-form select option{background:var(--green);color:var(--cream)}
-.booking-form textarea{resize:vertical;min-height:80px}
+.booking-form textarea{resize:vertical;min-height:90px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group{display:flex;flex-direction:column}
+.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px}
+.contact-icon{font-size:18px;margin-top:2px;opacity:0.7}
+.contact-label{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.contact-val{font-family:var(--serif);font-size:20px;font-weight:300}
+.contact-val-sm{font-size:13px;opacity:0.7;line-height:1.6;font-weight:300}
 
-/* CONTACTS */
-.contacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto;text-align:center}
-.contact-card{padding:32px}
-.contact-card .contact-emoji{font-size:32px;margin-bottom:16px}
-.contact-card h3{font-size:14px;font-weight:600;color:var(--green);margin-bottom:8px}
-.contact-card p{font-size:14px;color:var(--text-light);line-height:1.7}
-
-/* FOOTER */
-footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-align:center}
-.footer-logo{height:60px;margin:0 auto 20px;filter:brightness(1.1)}
+/* ── FOOTER ── */
+footer{
+  background:var(--green);
+  border-top:1px solid rgba(201,168,76,0.2);
+  padding:48px;text-align:center;
+}
+.footer-logo{height:52px;margin:0 auto 20px}
 .footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:24px}
-.footer-links a{color:rgba(250,248,243,0.6);font-size:13px;transition:color .3s}
+.footer-links a{color:rgba(247,244,239,0.45);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}
 .footer-links a:hover{color:var(--gold)}
-.footer-copy{font-size:12px;color:rgba(250,248,243,0.4)}
+.footer-copy{font-size:11px;color:rgba(247,244,239,0.3);letter-spacing:0.5px}
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.fade-in{opacity:0;transform:translateY(24px);transition:all .7s ease}
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
-/* MOBILE */
-@media(max-width:768px){
+/* ── MOBILE ── */
+@media(max-width:900px){
   nav{padding:0 20px}
-  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,58,42,0.98);flex-direction:column;justify-content:center;align-items:center;gap:24px}
+  .nav-links{display:none;position:fixed;inset:0;background:rgba(28,53,40,0.98);flex-direction:column;justify-content:center;align-items:center;gap:32px}
   .nav-links.open{display:flex}
   .burger{display:flex}
-  section{padding:60px 20px}
+  section{padding:64px 20px}
   .hero h1{font-size:32px}
-  .features{grid-template-columns:1fr 1fr}
-  .houses-grid{grid-template-columns:1fr}
-  .farm-layout{grid-template-columns:1fr}
-  .spa-services{grid-template-columns:1fr}
-  .packages-grid{grid-template-columns:1fr}
-  .booking-grid{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr}
+  .feature{aspect-ratio:16/9}
+  .houses-grid,.farm-layout,.spa-services,.packages-grid,.booking-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
-  .contacts-grid{grid-template-columns:1fr}
-  .hero-logo{width:200px}
+  .hero-logo{width:180px}
+  .spa-hero h2{font-size:32px}
+  .title{font-size:30px}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
   <img src="logo.png" alt="Ферма у реки" class="nav-logo" onclick="showPage('home')">
   <div class="nav-links" id="navLinks">
@@ -197,21 +409,23 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
   </div>
 </nav>
 
-<!-- ===================== HOME PAGE ===================== -->
+<!-- ═══════════════ HOME ═══════════════ -->
 <div class="page active" id="page-home">
 
 <div class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg"><img src="dom72.webp" alt="Ферма у реки"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <img src="logo.png" alt="Ферма у реки" class="hero-logo">
+    <div class="hero-line"></div>
     <h1>Где утро пахнет свежим хлебом,<br>а вечер — дровяной баней</h1>
+    <p>Премиальный эко-глэмпинг · Река Дубна · 100 км от МКАД</p>
     <div class="hero-tags">
       <span class="hero-tag">Эко-глэмпинг</span>
-      <span class="hero-tag">Ферма</span>
+      <span class="hero-tag">Собственная ферма</span>
       <span class="hero-tag">Дома на воде</span>
-      <span class="hero-tag">Баня</span>
+      <span class="hero-tag">Баня на реке</span>
     </div>
-    <p>Премиальный глэмпинг с собственной фермой на берегу реки Дубна.<br>26 домиков, сыроварня, плавучая баня, мастер-классы. 100 км от МКАД.</p>
     <div class="hero-btns">
       <button class="btn btn-gold" onclick="showPage('booking')">Забронировать</button>
       <button class="btn btn-outline" onclick="showPage('houses')">Смотреть домики</button>
@@ -219,41 +433,43 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
   </div>
 </div>
 
-<section>
-  <div style="text-align:center;max-width:1200px;margin:0 auto">
-    <div class="section-label">Почему мы</div>
-    <div class="section-title">Не просто глэмпинг, а место, куда хочется вернуться</div>
-    <div class="section-subtitle">Четыре причины выбрать «Ферму у реки»</div>
-  </div>
-  <div class="features">
-    <div class="feature fade-in">
-      <div class="feature-icon">🐐</div>
-      <h3>Живая ферма</h3>
-      <p>Коровы, козы, овцы, куры, кролики и пони. Собственная сыроварня и пекарня. Продукты к вашему столу каждое утро.</p>
+<!-- Фото-сетка четыре объекта -->
+<div class="features">
+  <div class="feature fade-in">
+    <img src="dom69.webp" alt="Домик в лесу">
+    <div class="feature-overlay"></div>
+    <div class="feature-text">
+      <h3>Домики в лесу</h3>
+      <p>25–68 м² · панорамное остекление · терраса</p>
+      <span class="price-tag">от 12 000 ₽ / ночь</span>
     </div>
-    <div class="feature fade-in">
-      <div class="feature-icon">🏡</div>
+  </div>
+  <div class="feature fade-in">
+    <img src="dom72.webp" alt="Дворец на воде">
+    <div class="feature-overlay"></div>
+    <div class="feature-text">
       <h3>Дома на воде</h3>
-      <p>Три плавучих дворца с панорамным остеклением, парной и купелью. Такого нет больше нигде в Подмосковье.</p>
-    </div>
-    <div class="feature fade-in">
-      <div class="feature-icon">🧖‍♀️</div>
-      <h3>Баня на воде</h3>
-      <p>Русская баня посреди реки. Летом — купание на закате, зимой — прорубь и звездное небо.</p>
-    </div>
-    <div class="feature fade-in">
-      <div class="feature-icon">🧀</div>
-      <h3>Мастер-классы</h3>
-      <p>Сыроварение, хлебопечение, кормление животных. Ваш ребенок уедет с собственной головкой сыра.</p>
+      <p>84 м² · парная · купель · панорама реки</p>
+      <span class="price-tag">от 35 000 ₽ / ночь</span>
     </div>
   </div>
-</section>
+  <div class="feature fade-in">
+    <img src="banya.png" alt="Баня на воде">
+    <div class="feature-overlay"></div>
+    <div class="feature-text">
+      <h3>Баня на воде</h3>
+      <p>На понтоне · дровяная · прорубь зимой</p>
+      <span class="price-tag">от 12 000 ₽ / сеанс</span>
+    </div>
+  </div>
+</div>
 
-<section style="background:var(--green-pale)">
-  <div style="text-align:center;max-width:1200px;margin:0 auto">
-    <div class="section-label">Пакетные предложения</div>
-    <div class="section-title">Выберите свой сценарий отдыха</div>
-    <div class="section-subtitle">Все пакеты включают завтрак из фермерских продуктов</div>
+<!-- Пакеты -->
+<section style="background:var(--cream2)">
+  <div style="text-align:center;max-width:700px;margin:0 auto">
+    <div class="label">Пакетные предложения</div>
+    <div class="title">Выберите свой сценарий</div>
+    <div class="divider" style="margin:20px auto 52px"></div>
   </div>
   <div class="packages-grid">
     <div class="package fade-in">
@@ -261,9 +477,9 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
       <div class="pkg-for">Семьи с детьми</div>
       <ul>
         <li>2 ночи в «Тереме в лесу»</li>
-        <li>Завтраки из фермерских продуктов</li>
-        <li>Детский мастер-класс «Юный фермер»</li>
-        <li>Посещение фермы с кормлением животных</li>
+        <li>Завтраки из продуктов фермы</li>
+        <li>Мастер-класс «Юный фермер»</li>
+        <li>Посещение фермы с животными</li>
       </ul>
       <div class="pkg-price">от 32 000 ₽</div>
       <div class="pkg-note">за домик, 2 ночи</div>
@@ -284,9 +500,9 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
       <h3>Работай на природе</h3>
       <div class="pkg-for">Workation</div>
       <ul>
-        <li>5 ночей в «Домике в лесу» (пн-пт)</li>
-        <li>Завтраки + поздние завтраки до 12:00</li>
-        <li>Коворкинг с Wi-Fi 50 Мбит/с</li>
+        <li>5 ночей пн–пт в Домике</li>
+        <li>Завтраки до 12:00</li>
+        <li>Коворкинг · Wi-Fi 50 Мбит/с</li>
         <li>1 SPA-сеанс в подарок</li>
       </ul>
       <div class="pkg-price">от 52 000 ₽</div>
@@ -297,89 +513,84 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
 
 </div>
 
-<!-- ===================== HOUSES PAGE ===================== -->
+<!-- ═══════════════ HOUSES ═══════════════ -->
 <div class="page" id="page-houses">
 <section style="padding-top:120px">
-  <div style="text-align:center;max-width:1200px;margin:0 auto">
-    <div class="section-label">Размещение</div>
-    <div class="section-title">Четыре формата для вашего идеального отдыха</div>
-    <div class="section-subtitle">От уютного домика для двоих до дворца на воде</div>
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="label">Размещение</div>
+    <div class="title">Четыре формата</div>
+    <div class="divider"></div>
+    <p class="subtitle">От уютного домика для двоих до дворца на воде с собственной парной</p>
   </div>
   <div class="houses-grid">
     <div class="house-card fade-in">
-      <div class="house-img" style="background:linear-gradient(135deg,#2d5a3f,#1a3a2a)">
-        <span class="house-emoji">🏠</span>
-      </div>
+      <div class="house-img"><img src="dom69.webp" alt="Домик в лесу"></div>
       <div class="house-info">
         <h3>Домик в лесу</h3>
-        <div class="house-meta">25 м² + терраса 14,7 м² · 10 домиков</div>
+        <div class="house-meta">25 м² + терраса 14,7 м² &nbsp;·&nbsp; 10 домиков</div>
         <div class="house-details">
-          <span class="house-detail">👤 2 взрослых + 1 ребенок</span>
+          <span class="house-detail">👤 2 взрослых + 1 ребёнок</span>
           <span class="house-detail">🪟 Панорамное остекление</span>
           <span class="house-detail">🍳 Мини-кухня</span>
-          <span class="house-detail">🚿 Санузел с душем</span>
+          <span class="house-detail">🚿 Душ</span>
         </div>
-        <div class="house-price">
-          <span class="price">от 12 000 ₽</span>
-          <span class="per">/ сутки в будни</span>
+        <div class="house-price-row">
+          <div><span class="price">от 12 000 ₽</span><span class="per"> / будни</span></div>
+          <button class="btn btn-dark" onclick="showPage('booking')">Забронировать</button>
         </div>
       </div>
     </div>
     <div class="house-card fade-in">
-      <div class="house-img" style="background:linear-gradient(135deg,#3a6b4f,#2d5a3f)">
-        <span class="house-emoji">🏡</span>
-      </div>
+      <div class="house-img"><img src="dom70.jpg" alt="Терем в лесу"></div>
       <div class="house-info">
         <h3>Терем в лесу</h3>
-        <div class="house-meta">37,3 м² + терраса 14,7 м² · 8 домиков</div>
+        <div class="house-meta">37,3 м² + терраса 14,7 м² &nbsp;·&nbsp; 8 домиков</div>
         <div class="house-details">
           <span class="house-detail">👨‍👩‍👧‍👦 2 взрослых + 2 детей</span>
           <span class="house-detail">🛏 2 спальни</span>
-          <span class="house-detail">🛁 Санузел с ванной</span>
+          <span class="house-detail">🛁 Ванная</span>
           <span class="house-detail">🍳 Мини-кухня</span>
         </div>
-        <div class="house-price">
-          <span class="price">от 18 000 ₽</span>
-          <span class="per">/ сутки в будни</span>
+        <div class="house-price-row">
+          <div><span class="price">от 18 000 ₽</span><span class="per"> / будни</span></div>
+          <button class="btn btn-dark" onclick="showPage('booking')">Забронировать</button>
         </div>
       </div>
     </div>
     <div class="house-card fade-in">
-      <div class="house-img" style="background:linear-gradient(135deg,#4a7b5f,#2d5a3f)">
-        <span class="house-emoji">🏰</span>
-      </div>
+      <div class="house-img"><img src="dom71.webp" alt="Хоромы в лесу"></div>
       <div class="house-info">
         <h3>Хоромы в лесу</h3>
-        <div class="house-meta">68 м² + терраса 16 м² · 5 домиков</div>
+        <div class="house-meta">68 м² + терраса 16 м² &nbsp;·&nbsp; 5 домиков</div>
         <div class="house-details">
           <span class="house-detail">👨‍👩‍👧‍👦 До 8 человек</span>
           <span class="house-detail">🛏 3 спальни</span>
           <span class="house-detail">🚿 2 санузла</span>
-          <span class="house-detail">🍳 Мини-кухня</span>
+          <span class="house-detail">🍳 Кухня</span>
         </div>
-        <div class="house-price">
-          <span class="price">от 28 000 ₽</span>
-          <span class="per">/ сутки в будни</span>
+        <div class="house-price-row">
+          <div><span class="price">от 28 000 ₽</span><span class="per"> / будни</span></div>
+          <button class="btn btn-dark" onclick="showPage('booking')">Забронировать</button>
         </div>
       </div>
     </div>
     <div class="house-card fade-in">
-      <div class="house-img" style="background:linear-gradient(135deg,#1a3a2a,#b8963e 120%)">
-        <span class="house-emoji">⛵</span>
+      <div class="house-img">
+        <img src="dom72.webp" alt="Дворец на воде">
         <span class="house-badge">Эксклюзив</span>
       </div>
       <div class="house-info">
         <h3>Дворец на воде</h3>
-        <div class="house-meta">84 м² палуба · 3 плавучих дома</div>
+        <div class="house-meta">84 м² палуба &nbsp;·&nbsp; 3 плавучих дома</div>
         <div class="house-details">
           <span class="house-detail">👫 До 4 человек</span>
-          <span class="house-detail">🧖 Парная + купель</span>
+          <span class="house-detail">🔥 Парная + купель</span>
           <span class="house-detail">🍽 Зона гриль</span>
           <span class="house-detail">🏊 Купальная лестница</span>
         </div>
-        <div class="house-price">
-          <span class="price">от 35 000 ₽</span>
-          <span class="per">/ сутки в будни</span>
+        <div class="house-price-row">
+          <div><span class="price">от 35 000 ₽</span><span class="per"> / будни</span></div>
+          <button class="btn btn-dark" onclick="showPage('booking')">Забронировать</button>
         </div>
       </div>
     </div>
@@ -387,185 +598,111 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
 </section>
 </div>
 
-<!-- ===================== FARM PAGE ===================== -->
+<!-- ═══════════════ FARM ═══════════════ -->
 <div class="page" id="page-farm">
 <section style="padding-top:120px">
   <div class="farm-layout">
     <div>
-      <div class="section-label">Сердце проекта</div>
-      <div class="section-title">Ферма полного цикла</div>
-      <div class="section-subtitle">Не декоративный загон, а настоящее хозяйство</div>
-      <div class="section-text">На территории глэмпинга работает ферма с полным циклом переработки: от утреннего доения до головки сыра, которая к вечеру окажется на вашем столе. Коровы, козы, овцы, куры, кролики и пони живут в просторных вольерах, а гости могут не только наблюдать, но и участвовать в жизни фермы.</div>
-      <div class="section-text">Продукция фермы — молоко, сыры, творог, хлеб, мед, яйца — поступает в ресторан и фермерский магазин. Мы также организуем доставку фермерских продуктов по Москве и Московской области.</div>
-      <button class="btn btn-gold" onclick="showPage('booking')">Записаться на мастер-класс</button>
+      <div class="label">Сердце проекта</div>
+      <div class="title">Ферма полного цикла</div>
+      <div class="divider"></div>
+      <p class="subtitle" style="margin-bottom:24px">На территории работает настоящее фермерское хозяйство — не декоративный загон, а производство полного цикла. От утреннего доения до головки сыра, которая вечером окажется на вашем столе.</p>
+      <p class="subtitle">Молоко, сыры, хлеб, мёд, яйца — всё это поступает в ресторан и фермерский магазин. Продукты можно увезти домой или заказать доставку по Москве.</p>
+      <button class="btn btn-dark" onclick="showPage('booking')" style="margin-top:8px">Записаться на мастер-класс</button>
     </div>
     <div class="farm-visual">
-      <div class="farm-card fade-in">
-        <div class="farm-emoji">🐄</div>
-        <h4>Коровы и козы</h4>
-        <p>Свежее молоко каждый день</p>
-      </div>
-      <div class="farm-card fade-in">
-        <div class="farm-emoji">🧀</div>
-        <h4>Сыроварня</h4>
-        <p>6 сортов сыра собственного производства</p>
-      </div>
-      <div class="farm-card fade-in">
-        <div class="farm-emoji">🍞</div>
-        <h4>Пекарня</h4>
-        <p>Хлеб на закваске каждое утро</p>
-      </div>
-      <div class="farm-card fade-in">
-        <div class="farm-emoji">🌿</div>
-        <h4>Огород и теплицы</h4>
-        <p>Зелень, овощи, травяные чаи</p>
-      </div>
-      <div class="farm-card fade-in">
-        <div class="farm-emoji">🐔</div>
-        <h4>Птичий двор</h4>
-        <p>Свежие яйца к завтраку</p>
-      </div>
-      <div class="farm-card fade-in">
-        <div class="farm-emoji">🐴</div>
-        <h4>Пони</h4>
-        <p>Катание для детей</p>
-      </div>
+      <div class="farm-card fade-in"><div class="farm-emoji">🐄</div><h4>Коровы и козы</h4><p>Свежее молоко каждый день</p></div>
+      <div class="farm-card fade-in"><div class="farm-emoji">🧀</div><h4>Сыроварня</h4><p>6 сортов собственного сыра</p></div>
+      <div class="farm-card fade-in"><div class="farm-emoji">🍞</div><h4>Пекарня</h4><p>Хлеб на закваске каждое утро</p></div>
+      <div class="farm-card fade-in"><div class="farm-emoji">🌿</div><h4>Теплицы</h4><p>Зелень, овощи, травяные чаи</p></div>
+      <div class="farm-card fade-in"><div class="farm-emoji">🐔</div><h4>Птичий двор</h4><p>Свежие яйца к завтраку</p></div>
+      <div class="farm-card fade-in"><div class="farm-emoji">🐴</div><h4>Пони</h4><p>Катание для детей</p></div>
     </div>
   </div>
 </section>
-
-<section style="background:var(--green);color:var(--cream)">
-  <div style="text-align:center;max-width:900px;margin:0 auto">
-    <div class="section-label" style="color:var(--gold-light)">Мастер-классы</div>
-    <div class="section-title" style="color:var(--cream)">Увезите домой новые умения</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px">
-      <div style="text-align:center;padding:20px">
-        <div style="font-size:40px;margin-bottom:12px">🧀</div>
-        <div style="font-weight:600;margin-bottom:4px">Сыроварение</div>
-        <div style="font-size:13px;opacity:0.7">Сделайте свою моцареллу за 2 часа</div>
-        <div style="color:var(--gold-light);font-weight:600;margin-top:8px">от 3 500 ₽</div>
-      </div>
-      <div style="text-align:center;padding:20px">
-        <div style="font-size:40px;margin-bottom:12px">🍞</div>
-        <div style="font-weight:600;margin-bottom:4px">Хлебопечение</div>
-        <div style="font-size:13px;opacity:0.7">Хлеб на закваске своими руками</div>
-        <div style="color:var(--gold-light);font-weight:600;margin-top:8px">от 2 500 ₽</div>
-      </div>
-      <div style="text-align:center;padding:20px">
-        <div style="font-size:40px;margin-bottom:12px">🐐</div>
-        <div style="font-weight:600;margin-bottom:4px">Юный фермер</div>
-        <div style="font-size:13px;opacity:0.7">Кормление животных для детей</div>
-        <div style="color:var(--gold-light);font-weight:600;margin-top:8px">от 1 500 ₽</div>
-      </div>
+<section style="background:var(--green);color:var(--cream);padding:80px 48px">
+  <div style="text-align:center;max-width:800px;margin:0 auto">
+    <div class="label" style="color:rgba(201,168,76,0.9)">Мастер-классы</div>
+    <div class="title" style="color:var(--cream)">Увезите домой новые умения</div>
+    <div class="divider" style="margin:20px auto 48px"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
+      <div><div style="font-size:36px;margin-bottom:14px">🧀</div><div style="font-family:var(--serif);font-size:18px;margin-bottom:6px">Сыроварение</div><div style="font-size:12px;opacity:0.6;margin-bottom:10px">Своя моцарелла за 2 часа</div><div style="color:var(--gold);font-size:12px;letter-spacing:1px">от 3 500 ₽</div></div>
+      <div><div style="font-size:36px;margin-bottom:14px">🍞</div><div style="font-family:var(--serif);font-size:18px;margin-bottom:6px">Хлебопечение</div><div style="font-size:12px;opacity:0.6;margin-bottom:10px">Хлеб на живой закваске</div><div style="color:var(--gold);font-size:12px;letter-spacing:1px">от 2 500 ₽</div></div>
+      <div><div style="font-size:36px;margin-bottom:14px">🐐</div><div style="font-family:var(--serif);font-size:18px;margin-bottom:6px">Юный фермер</div><div style="font-size:12px;opacity:0.6;margin-bottom:10px">Кормление животных для детей</div><div style="color:var(--gold);font-size:12px;letter-spacing:1px">от 1 500 ₽</div></div>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ===================== SPA PAGE ===================== -->
+<!-- ═══════════════ SPA ═══════════════ -->
 <div class="page" id="page-spa">
-<section style="padding-top:120px">
-  <div style="text-align:center;max-width:1200px;margin:0 auto">
-    <div class="section-label">Перезагрузка</div>
-    <div class="section-title">SPA, баня и оздоровление</div>
-    <div class="section-subtitle">Пока дети на ферме — вы в SPA</div>
+<div class="spa-hero">
+  <img src="banya.png" alt="Баня на воде">
+  <div class="spa-hero-overlay">
+    <div class="spa-hero-text">
+      <div class="label">SPA и оздоровление</div>
+      <h2>Баня на воде. Закат. Тишина.</h2>
+    </div>
+  </div>
+</div>
+<section style="padding-top:80px">
+  <div style="text-align:center;max-width:700px;margin:0 auto 52px">
+    <div class="label">Перезагрузка</div>
+    <div class="title">Пока дети на ферме — вы в SPA</div>
+    <div class="divider" style="margin:20px auto 0"></div>
   </div>
   <div class="spa-services">
-    <div class="spa-card fade-in">
-      <div class="spa-emoji">🔥</div>
-      <h3>Плавучая баня</h3>
-      <p>Русская баня посреди реки Дубна. Летом — купание с палубы, зимой — безопасная прорубь. Вместимость до 8 человек.</p>
-      <div class="spa-price">от 12 000 ₽ / сеанс</div>
-    </div>
-    <div class="spa-card fade-in">
-      <div class="spa-emoji">🧖‍♀️</div>
-      <h3>SPA-комплекс</h3>
-      <p>Русская баня, финская сауна, хаммам, массажный кабинет. Купель с ледяной водой и открытая веранда для релаксации.</p>
-      <div class="spa-price">от 4 000 ₽ / сеанс</div>
-    </div>
-    <div class="spa-card fade-in">
-      <div class="spa-emoji">💆</div>
-      <h3>Массаж</h3>
-      <p>Классический, расслабляющий, спортивный. Сертифицированные массажисты. По предварительной записи.</p>
-      <div class="spa-price">от 5 000 ₽ / сеанс</div>
-    </div>
-    <div class="spa-card fade-in">
-      <div class="spa-emoji">🏊</div>
-      <h3>Пляж и водные активности</h3>
-      <p>Оборудованный пляж с шезлонгами, прокат SUP-бордов, лодок с электромотором и велосипедов.</p>
-      <div class="spa-price">от 1 500 ₽ / час</div>
-    </div>
-    <div class="spa-card fade-in">
-      <div class="spa-emoji">🧘</div>
-      <h3>Wellness-программы</h3>
-      <p>Программы «Перезагрузка» и «Цифровой детокс»: йога, медитации, травяные чаи, SPA-ритуалы. От 3 дней.</p>
-      <div class="spa-price">от 55 000 ₽ / 3 ночи</div>
-    </div>
-    <div class="spa-card fade-in">
-      <div class="spa-emoji">🏃</div>
-      <h3>Активный отдых</h3>
-      <p>Пешие маршруты по лесу, рыбалка, зимой — лыжи и коньки. Спортивная площадка на территории.</p>
-      <div class="spa-price">входит в стоимость</div>
-    </div>
+    <div class="spa-card fade-in"><div class="spa-emoji">🔥</div><h3>Плавучая баня</h3><p>Русская баня посреди реки Дубна. Летом — купание с палубы, зимой — прорубь. До 8 человек.</p><div class="spa-price">от 12 000 ₽ / сеанс</div></div>
+    <div class="spa-card fade-in"><div class="spa-emoji">🧖‍♀️</div><h3>SPA-комплекс</h3><p>Баня, финская сауна, хамам, массажный кабинет. Купель с ледяной водой, веранда.</p><div class="spa-price">от 4 000 ₽ / сеанс</div></div>
+    <div class="spa-card fade-in"><div class="spa-emoji">💆</div><h3>Массаж</h3><p>Классический, расслабляющий, спортивный. Сертифицированные мастера. По записи.</p><div class="spa-price">от 5 000 ₽ / сеанс</div></div>
+    <div class="spa-card fade-in"><div class="spa-emoji">🏊</div><h3>Пляж и активности</h3><p>Оборудованный пляж, прокат SUP-бордов, лодок с электромотором, велосипедов.</p><div class="spa-price">от 1 500 ₽ / час</div></div>
+    <div class="spa-card fade-in"><div class="spa-emoji">🧘</div><h3>Wellness</h3><p>«Перезагрузка» и «Цифровой детокс»: йога, медитации, травяные чаи, SPA-ритуалы.</p><div class="spa-price">от 55 000 ₽ / 3 ночи</div></div>
+    <div class="spa-card fade-in"><div class="spa-emoji">🏃</div><h3>Активный отдых</h3><p>Пешие маршруты, рыбалка, зимой — лыжи и коньки. Спортивная площадка.</p><div class="spa-price">включено</div></div>
   </div>
 </section>
 </div>
 
-<!-- ===================== BOOKING PAGE ===================== -->
+<!-- ═══════════════ BOOKING ═══════════════ -->
 <div class="page" id="page-booking">
-<section class="booking-section" style="padding-top:120px;min-height:100vh">
+<section class="booking-section" style="min-height:100vh;padding-top:120px">
   <div class="booking-grid">
     <div>
-      <div class="section-label" style="color:var(--gold-light)">Бронирование</div>
-      <div class="section-title" style="color:var(--cream)">Забронируйте ваш отдых</div>
-      <div class="section-subtitle" style="color:rgba(250,248,243,0.6)">Ответим в течение часа</div>
-      <div style="margin-top:32px">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-          <span style="font-size:24px">📞</span>
-          <div>
-            <div style="font-size:12px;color:var(--gold-light);letter-spacing:1px;text-transform:uppercase">Телефон</div>
-            <div style="font-size:18px;font-weight:600">+7 (495) 000-00-00</div>
-          </div>
+      <div class="label" style="color:rgba(201,168,76,0.9)">Бронирование</div>
+      <div class="title" style="color:var(--cream)">Забронируйте ваш отдых</div>
+      <div class="divider"></div>
+      <p style="font-size:13px;color:rgba(247,244,239,0.6);line-height:1.9;font-weight:300;margin-bottom:40px">Ответим в течение часа и подберём лучший вариант под ваш запрос</p>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Телефон</div>
+          <div class="contact-val">+7 (495) 000-00-00</div>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-          <span style="font-size:24px">✈️</span>
-          <div>
-            <div style="font-size:12px;color:var(--gold-light);letter-spacing:1px;text-transform:uppercase">Telegram</div>
-            <div style="font-size:18px;font-weight:600">@fermaureki</div>
-          </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✈️</div>
+        <div>
+          <div class="contact-label">Telegram</div>
+          <div class="contact-val">@fermaureki</div>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-          <span style="font-size:24px">📍</span>
-          <div>
-            <div style="font-size:12px;color:var(--gold-light);letter-spacing:1px;text-transform:uppercase">Адрес</div>
-            <div style="font-size:14px;opacity:0.8">Московская область, Талдомский район,<br>берег реки Дубна. 100 км от МКАД.</div>
-          </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Адрес</div>
+          <div class="contact-val-sm">Московская область<br>Талдомский район, р. Дубна<br>100 км от МКАД</div>
         </div>
       </div>
     </div>
     <div class="booking-form">
       <div class="form-row">
-        <div class="form-group">
-          <label>Имя</label>
-          <input type="text" placeholder="Ваше имя">
-        </div>
-        <div class="form-group">
-          <label>Телефон</label>
-          <input type="tel" placeholder="+7 (___) ___-__-__">
-        </div>
+        <div class="form-group"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
+        <div class="form-group"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Дата заезда</label>
-          <input type="date">
-        </div>
-        <div class="form-group">
-          <label>Дата выезда</label>
-          <input type="date">
-        </div>
+        <div class="form-group"><label>Дата заезда</label><input type="date"></div>
+        <div class="form-group"><label>Дата выезда</label><input type="date"></div>
       </div>
-      <div class="form-group">
-        <label>Тип размещения</label>
+      <div class="form-group"><label>Тип размещения</label>
         <select>
           <option>Домик в лесу (от 12 000 ₽)</option>
           <option>Терем в лесу (от 18 000 ₽)</option>
@@ -574,26 +711,16 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
         </select>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Взрослых</label>
-          <select><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
-        </div>
-        <div class="form-group">
-          <label>Детей</label>
-          <select><option selected>0</option><option>1</option><option>2</option><option>3</option></select>
-        </div>
+        <div class="form-group"><label>Взрослых</label><select><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
+        <div class="form-group"><label>Детей</label><select><option selected>0</option><option>1</option><option>2</option><option>3</option></select></div>
       </div>
-      <div class="form-group">
-        <label>Пожелания</label>
-        <textarea placeholder="Расскажите, что для вас важно: повод поездки, аллергии, дополнительные услуги..."></textarea>
-      </div>
-      <button class="btn btn-gold" style="width:100%;margin-top:8px" onclick="alert('Спасибо! Мы свяжемся с вами в течение часа.')">Отправить заявку</button>
+      <div class="form-group"><label>Пожелания</label><textarea placeholder="Повод поездки, особые пожелания, вопросы..."></textarea></div>
+      <button class="btn btn-gold" style="margin-top:8px" onclick="alert('Спасибо! Мы свяжемся с вами в течение часа.')">Отправить заявку</button>
     </div>
   </div>
 </section>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <img src="logo.png" alt="Ферма у реки" class="footer-logo">
   <div class="footer-links">
@@ -603,7 +730,7 @@ footer{background:var(--green);color:var(--cream);padding:60px 40px 30px;text-al
     <a href="#" onclick="showPage('spa')">SPA</a>
     <a href="#" onclick="showPage('booking')">Бронирование</a>
   </div>
-  <div class="footer-copy">© 2026 «Ферма у реки». Глэмпинг в Подмосковье. Талдомский район, берег реки Дубна.</div>
+  <div class="footer-copy">© 2026 «Ферма у реки» · Глэмпинг · Талдомский район · р. Дубна</div>
 </footer>
 
 <script>
@@ -617,22 +744,20 @@ function showPage(id){
   document.getElementById('navLinks').classList.remove('open');
   setTimeout(()=>{
     document.querySelectorAll('.page.active .fade-in').forEach((el,i)=>{
-      setTimeout(()=>el.classList.add('visible'),i*100);
+      setTimeout(()=>el.classList.add('visible'),i*80);
     });
-  },200);
+  },100);
 }
 function toggleMenu(){
   document.getElementById('navLinks').classList.toggle('open');
 }
 window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
 });
-// Init animations on home
-document.querySelectorAll('#page-home .fade-in').forEach((el,i)=>{
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target)}});
-  },{threshold:0.2});
-  obs.observe(el);
+document.querySelectorAll('#page-home .fade-in').forEach(el=>{
+  new IntersectionObserver(([e])=>{
+    if(e.isIntersecting){e.target.classList.add('visible')}
+  },{threshold:0.15}).observe(el);
 });
 </script>
 </body>
